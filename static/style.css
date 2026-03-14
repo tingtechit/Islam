@@ -33,11 +33,20 @@ h1 {
   margin: 1.5rem 0 2rem;
 }
 
-input {
+input,
+select {
+  width: 100%;
+  box-sizing: border-box;
   padding: 0.7rem 0.8rem;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   font-size: 1rem;
+}
+
+.verse-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
 }
 
 button {
@@ -83,4 +92,14 @@ button:hover {
 
 .empty {
   color: #6b7280;
+}
+
+@media (max-width: 640px) {
+  .verse-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .entries li {
+    flex-direction: column;
+  }
 }
