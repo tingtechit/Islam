@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quran Recitation Tracker</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Quran Recitation Tracker</h1>
+      <p class="subtitle">Track recitations by selecting a Surah and verse range.</p>
+
+      <form action="/add" method="post" class="entry-form">
+        <label for="surah">Surah</label>
+        <select id="surah" name="surah" required>
+          {{SURAH_OPTIONS}}
+        </select>
+
+        <div class="verse-grid">
+          <div>
+            <label for="verse_start">Verse Start</label>
+            <input id="verse_start" name="verse_start" type="number" min="1" required />
+          </div>
+          <div>
+            <label for="verse_end">Verse End</label>
+            <input id="verse_end" name="verse_end" type="number" min="1" required />
+          </div>
+        </div>
+
+        <button type="submit">Add Entry</button>
+      </form>
+
+      <section class="entries">
+        <h2>Recent Entries</h2>
+        {{ENTRIES_HTML}}
+      </section>
+    </main>
+  </body>
+</html>
